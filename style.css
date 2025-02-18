@@ -1,62 +1,121 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-}
-
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-header {
-    text-align: center;
-    background: #FF4500;
-    color: white;
-    padding: 20px;
-    border-radius: 5px 5px 0 0;
-}
-
-h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-h2 {
-    border-bottom: 2px solid #007BFF;
-    padding-bottom: 5px;
-    color: #333;
-}
-
-section {
-    margin: 20px 0;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    background: #007BFF;
-    color: white;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-
-footer {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 14px;
-}
-
-footer a {
-    text-decoration: none;
-    color: #007BFF;
-    font-weight: bold;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkle Effect</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            background: #FF4500;
+            color: white;
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+        }
+        h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        h2 {
+            border-bottom: 2px solid #007BFF;
+            padding-bottom: 5px;
+            color: #333;
+        }
+        section {
+            margin: 20px 0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        footer a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        
+        .sparkle {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: yellow;
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle 1s ease-in-out infinite;
+        }
+        
+        @keyframes sparkle {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+            100% { opacity: 0; transform: scale(2); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome to My Page</h1>
+        </header>
+        <section>
+            <h2>Content Section</h2>
+            <p>This is a sample page with a sparkle effect.</p>
+        </section>
+        <footer>
+            <p>&copy; 2025 My Website | <a href="#">Contact</a></p>
+        </footer>
+    </div>
+    
+    <script>
+        function createSparkle(x, y) {
+            const sparkle = document.createElement("div");
+            sparkle.classList.add("sparkle");
+            document.body.appendChild(sparkle);
+            sparkle.style.left = `${x}px`;
+            sparkle.style.top = `${y}px`;
+            setTimeout(() => sparkle.remove(), 1000);
+        }
+        
+        function generateSparkles() {
+            const corners = [
+                { x: 20, y: 20 },
+                { x: window.innerWidth - 30, y: 20 },
+                { x: 20, y: window.innerHeight - 30 },
+                { x: window.innerWidth - 30, y: window.innerHeight - 30 }
+            ];
+            
+            let interval = setInterval(() => {
+                corners.forEach(corner => createSparkle(corner.x, corner.y));
+            }, 500);
+            
+            setTimeout(() => clearInterval(interval), 4000);
+        }
+        
+        window.onload = generateSparkles;
+    </script>
+</body>
+</html>
