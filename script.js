@@ -10,7 +10,7 @@ shuffle(pieces);
 pieces.forEach((i) => {
   const piece = document.createElement('div');
   piece.draggable = true;
-piece.style.backgroundImage = 'url("https://drive.google.com/file/d/1J9mZYzqQMPXTCnFlLcIcjRism34cu015/view?usp=drive_link")';
+piece.style.backgroundImage = 'url("https://imgur.com/gallery/we-miss-you-CP0pJ5A")';
   
  // piece.style.backgroundImage = 'url("C:/Users/Asus/OneDrive/Pictures/nature/cheetha.jpg")';
   piece.style.backgroundPosition = `${-(i % 3) * 100}px ${-Math.floor(i / 3) * 100}px`;
