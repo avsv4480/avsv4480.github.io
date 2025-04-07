@@ -10,7 +10,9 @@ shuffle(pieces);
 pieces.forEach((i) => {
   const piece = document.createElement('div');
   piece.draggable = true;
-  piece.style.backgroundImage = 'url("C:/Users/Asus/OneDrive/Pictures/nature/cheetha.jpg")';
+piece.style.backgroundImage = 'url("https://github.com/avsv4480/avsv4480.github.io/blob/main/cheetha.jpg")';
+  
+ // piece.style.backgroundImage = 'url("C:/Users/Asus/OneDrive/Pictures/nature/cheetha.jpg")';
   piece.style.backgroundPosition = `${-(i % 3) * 100}px ${-Math.floor(i / 3) * 100}px`;
   piece.dataset.index = i;
   puzzleContainer.appendChild(piece);
